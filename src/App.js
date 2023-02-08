@@ -5,6 +5,7 @@ import Sidebar from "./component/sidebar";
 import ButtonPage from "./pages/ButtonPage";
 import ModalPages from "./pages/ModalPages";
 import TablePage from "./pages/TablePage";
+import CounterPage from "./pages/CounterPage";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/"><AccordionPage /></Route>
         <Route path="/button"><ButtonPage /></Route>
         <Route path="/modal"><ModalPages /></Route>
-        <Route path="/table"><TablePage/></Route>
+        <Route path="/table"><TablePage /></Route>
+        <Route path="/counter"><CounterPage/></Route>
       </div>
     </div>
   )

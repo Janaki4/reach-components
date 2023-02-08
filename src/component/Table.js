@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 
 function Table({ data, config }) {
   const renderedHeader = config.map(column => {
