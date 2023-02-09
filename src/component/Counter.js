@@ -1,38 +1,29 @@
 import Panel from "./Panel";
 import { useReducer } from "react";
 import Button from "./Button"
+import produce from "immer";
 
 function Counter({ initialCount }) {
+    
     const reducer = (state, action) => {
         if (action.type === "submit") {
-            return {
-                ...state,
-                count: state.valueToAdd + state.count,
-                valueToAdd: 0
-            }
+            state.count = state.valueToAdd + state.count,
+            state.valueToAdd = 0
         }
         else if (action.type === "increament") {
-            return {
-                ...state,
-                count: state.count + 1
-            }
+            state.count = state.count + 1
         }
         else if (action.type === "set_value") {
-            return {
-                ...state,
-                valueToAdd: action.payload
-            }
+            state.valueToAdd = action.payload
         }
         else if (action.type === "decreament") {
-            return {
-                ...state,
-                count: state.count - 1
-            }
+            state.count = state.count - 1
         }
 
-        return state
+        return
     }
-    const [state, dispatch] = useReducer(reducer, {
+
+    const [state, dispatch] = useReducer(produce(reducer), {
         count: initialCount,
         valueToAdd: 0
     })
